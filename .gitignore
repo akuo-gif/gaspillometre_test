@@ -1,0 +1,27 @@
+# Modèles entraînés
+models/*.pt
+
+# Données
+data/images/
+data/labels/
+
+# Résultats
+results/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Label Studio
+.label-studio/

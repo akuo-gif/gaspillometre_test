@@ -1,0 +1,48 @@
+# ============================================================
+# GASPILLOMÈTRE - Configuration générale
+# ============================================================
+
+# --- Modèle ---
+model:
+  name: yolov8n  # nano = rapide, idéal pour prototype (yolov8n, yolov8s, yolov8m, yolov8l, yolov8x)
+  confidence_threshold: 0.25
+  iou_threshold: 0.45
+  imgsz: 640
+
+# --- Entraînement ---
+training:
+  epochs: 100
+  batch_size: 8       # Ajuster selon votre GPU (8 pour ~4GB VRAM)
+  patience: 20        # Early stopping
+  lr0: 0.01
+  lrf: 0.01
+  augment: true
+  pretrained: true     # Transfer learning depuis COCO
+
+# --- Estimation de poids ---
+# Densité moyenne (g/cm²) pour chaque catégorie d'aliment
+# Ces valeurs sont des estimations initiales à calibrer
+weight_estimation:
+  reference_tray_area_cm2: 1200  # Surface d'un plateau standard en cm²
+  density_g_per_cm2:
+    bread: 0.35
+    meat: 0.85
+    pasta: 0.60
+    banana: 0.50
+    apple: 0.55
+    food: 0.65
+
+# --- Statistiques ---
+stats:
+  saisons:
+    hiver: [12, 1, 2]
+    printemps: [3, 4, 5]
+    ete: [6, 7, 8]
+    automne: [9, 10, 11]
+
+# --- Chemins ---
+paths:
+  data_dir: data
+  models_dir: models
+  results_dir: results
+  logs_dir: logs

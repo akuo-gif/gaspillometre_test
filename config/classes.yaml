@@ -1,0 +1,22 @@
+# ============================================================
+# GASPILLOMÈTRE - Configuration des classes d'aliments
+# ============================================================
+# Fichier de configuration du dataset YOLO
+# Ajoutez vos classes ici au fur et à mesure des annotations
+
+path: ../data
+train: images/train
+val: images/val
+
+# Classes d'aliments détectables sur les plateaux
+# Adaptez cette liste à votre cantine / restaurant
+names:
+  0: food
+  1: meat
+  2: pasta
+  3: apple
+  4: banana
+  5: bread
+
+# Nombre de classes
+nc: 6
