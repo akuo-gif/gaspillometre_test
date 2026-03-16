@@ -26,11 +26,17 @@ weight_estimation:
   reference_tray_area_cm2: 1200  # Surface d'un plateau standard en cm²
   density_g_per_cm2:
     bread: 0.35
+    fish: 0.75
+    mixture: 0.55
     meat: 0.85
     pasta: 0.60
     banana: 0.50
     apple: 0.55
     food: 0.65
+    puree: 0.50
+    cake: 0.40
+    salade: 0.30
+    poteto: 0.55
 
 # --- Statistiques ---
 stats:

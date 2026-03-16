@@ -4,19 +4,25 @@
 # Fichier de configuration du dataset YOLO
 # Ajoutez vos classes ici au fur et à mesure des annotations
 
-path: ../data
+path: /home/ciel21/Documents/projet/gaspillometre_finalisé/data
 train: images/train
 val: images/val
 
 # Classes d'aliments détectables sur les plateaux
 # Adaptez cette liste à votre cantine / restaurant
 names:
-  0: food
-  1: meat
-  2: pasta
-  3: apple
-  4: banana
-  5: bread
+  0: apple
+  1: banana
+  2: bread
+  3: cake
+  4: fish
+  5: food
+  6: meat
+  7: mixture
+  8: pasta
+  9: poteto
+  10: puree
+  11: salade
 
 # Nombre de classes
-nc: 6
+nc: 12

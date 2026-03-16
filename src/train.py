@@ -132,18 +132,18 @@ def train(args):
         lr0=train_cfg["lr0"],
         lrf=train_cfg["lrf"],
         # Augmentations pour compenser le petit dataset
-        augment=train_cfg["augment"],
-        hsv_h=0.015,        # Variation teinte
-        hsv_s=0.7,          # Variation saturation
-        hsv_v=0.4,          # Variation luminosité
-        degrees=10.0,       # Rotation
-        translate=0.1,      # Translation
-        scale=0.5,          # Zoom
-        shear=2.0,          # Cisaillement
-        flipud=0.5,         # Flip vertical
-        fliplr=0.5,         # Flip horizontal
-        mosaic=1.0,         # Mosaïque (très efficace pour petit dataset)
-        mixup=0.1,          # Mix d'images
+        augment=train_cfg["augment"],  # Active/désactive toutes les augmentations (True/False)
+        hsv_h=0.015,        # Variation de teinte (couleur) : ±1.5% sur le cercle chromatique (léger, pour ne pas dénaturer les aliments)
+        hsv_s=0.7,          # Variation de saturation : ±70% (simule des éclairages/caméras différents)
+        hsv_v=0.4,          # Variation de luminosité : ±40% (simule des conditions de lumière variées, cantine plus ou moins éclairée)
+        degrees=10.0,       # Rotation aléatoire de ±10° (les plateaux ne sont pas toujours droits sur la photo)
+        translate=0.1,      # Translation : décale l'image de ±10% (le plateau n'est pas toujours centré)
+        scale=0.5,          # Zoom aléatoire de ±50% (simule des distances de prise de vue différentes)
+        shear=2.0,          # Cisaillement de ±2° (légère déformation en parallélogramme, simule l'angle de la caméra)
+        flipud=0.5,         # 50% de chance de retourner l'image verticalement (haut ↔ bas)
+        fliplr=0.5,         # 50% de chance de retourner l'image horizontalement (gauche ↔ droite)
+        mosaic=1.0,         # Mosaïque à 100% : combine 4 images en une seule, force le modèle à détecter des objets plus petits et dans des contextes variés
+        mixup=0.1,          # 10% de chance de superposer 2 images semi-transparentes, aide à la généralisation
         # Sortie
         project=str(RESULTS_DIR),
         name=run_name,
@@ -173,7 +173,7 @@ def train(args):
     print(f"  Meilleur modèle   : models/best.pt")
     print(f"\n  Pour tester le modèle :")
     print(f"    python src/inference.py --image <chemin_image>")
-    print(f"    python src/inference.py --dir imagesplateau/")
+    print(f"    python src/inference.py --dir imageplateau/")
     print(f"\n  Pour lancer le dashboard :")
     print(f"    streamlit run src/dashboard.py")
 

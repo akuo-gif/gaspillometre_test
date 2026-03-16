@@ -28,7 +28,7 @@ from PIL import Image
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CONFIG_DIR = PROJECT_ROOT / "config"
 DATA_DIR = PROJECT_ROOT / "data"
-RAW_IMAGES_DIR = PROJECT_ROOT / "imagesplateau"
+RAW_IMAGES_DIR = PROJECT_ROOT / "imageplateau"
 
 
 def load_config():
